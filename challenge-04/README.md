@@ -9,18 +9,13 @@ para o contrário.
 */
 
 var isTruthy = function (arg) {
-  if ( arg ) {
-    return true
-  } else {
-    return false
-  }
+  return !!arg
 }
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
 
 isTruthy(-0)
 isTruthy(0)
-isTruthy(false)
 isTruthy(false)
 isTruthy(NaN)
 isTruthy('')
@@ -31,17 +26,20 @@ isTruthy(undefined)
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 */
 
-isTruthy(true)
 isTruthy(1)
-isTruthy('true')
 isTruthy('hello')
-isTruthy('world')
-isTruthy(12)
-isTruthy(333)
-isTruthy(!false)
-isTruthy('hi!')
-isTruthy('good')
-isTruthy('contador')
+isTruthy([])
+isTruthy({})
+isTruthy(function () {})
+isTruthy(12 + 11)
+isTruthy({iSay: 'hi'})
+isTruthy('luan')
+isTruthy(-1)
+isTruthy(12 + 'hi')
+isTruthy('q')
+
+
+
 
 /*
 Declare uma variável chamada `carro`, atribuindo à ela um objeto com as
@@ -128,18 +126,20 @@ citado acima, no lugar de "pessoas".
 */
 
 carro.adicionarPessoas = function (pessoas) {
-
-  var quantidade = this.assentos - this.quantidadePessoas
-  var artigo = quantidade === 1 ? ' pessoa!' : ' pessoas!'
-  
-  if ( this.quantidadePessoas >= this.assentos ) {
-      return 'O carro já está lotado!'
-  } else if ( pessoas > this.assentos ) {
-      return 'Só cabem mais ' + quantidade + artigo
-  } else {
-      this.quantidadePessoas += pessoas
-      return 'Já temos ' + this.quantidadePessoas + ' pessoas no carro!'
-  }
+ var total = this.quantidadePessoas + pessoas;
+ 
+ if ( this.quantidadePessoas === this.assentos ) {
+    return 'O carro já está lotado!'
+ }
+ 
+ if ( assentos > this.assentos ) {
+    var quantasPessoasCabem = this.assentos - this.quantidadePessoas
+    var artigo = quantasPessoasCabem === 1 ? 'pessoa!' : 'pessoas!'
+    return ' Só cabem mais' + quantasPessoasCabem + artigo
+ }
+ 
+ this.quantidadePessoas += pessoas
+ return "Já temos" + total + "pessoas no carro!"
 }
 
 /*
