@@ -99,7 +99,7 @@ usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
 
-"O livro01 tem" + book('livro01').quantidadePaginas + "páginas!"
+console.log("O livro01 tem" + book('livro01').quantidadePaginas + "páginas!")
 
 
 /*
@@ -108,7 +108,7 @@ a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
 
-"O autor do livro livro02 é" + book('livro02').quantidadePaginas + "."
+console.log("O autor do livro livro02 é" + book('livro02').quantidadePaginas + ".")
 
 
 /*
@@ -117,5 +117,5 @@ a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
 
-"O livro livro03 foi publicado pela editora" + book('livro03').editora + "."
+console.log("O livro livro03 foi publicado pela editora" + book('livro03').editora + ".")
 
