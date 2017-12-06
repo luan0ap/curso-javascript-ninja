@@ -15,7 +15,7 @@ function returnArray ( arr ) {
 Imprima o segundo índice do array retornado pela função criada acima.
 */
 
-returnArray( [1,2,3,4,5] )[1]
+console.log(returnArray( [1,2,3,4,5] )[1])
 
 /*
 Crie uma função que receba dois parâmetros: o primeiro, um array de valores; e o
@@ -91,7 +91,7 @@ function book ( livro ) {
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
 
-book()
+console.log(book())
 
 /*
 Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer,
