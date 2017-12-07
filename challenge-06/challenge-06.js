@@ -33,38 +33,18 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
     - A função só deve retornar a frase acima somente se o time estiver entre
     os 5 primeiros.
     - Se não houver time para a posição passada, deve retornar a mensagem:
-    "Não temos a informação do time que está nessa posição."
-    
-    return 'O time que está em ' + number + 'º lugar é o ' + timePosicao + '.'
-    return 'Não temos a informação do time que está nessa posição.'
+    "Não temos a informação do time que está nessa posição."    
 */
 
 function showTeamPosition (number) {
   
   var timePosicao = teams[number - 1] 
-  var cinco = [ 'Avaí', 'Criciúma' ] 
-
-  switch ( timePosicao ) {
-      
-    case 'Avaí':
-      return 'O time que está em ' + number + 'º lugar é o ' + timePosicao + '.';
-      break;
-      
-    case 'Criciúma':
-      return 'O time que está em ' + number + 'º lugar é o ' + timePosicao + '.';
-      break;
-      
-    case 'Brusque':
-      return 'O time que está em ' + number + 'º lugar é o ' + timePosicao + '.';
-      break;
-      
-    case 'Chapecoense':
-      return 'O time que está em ' + number + 'º lugar é o ' + timePosicao + '.';
-      break;
-      
-    default: 
-      return 'Não temos a informação do time que está nessa posição.'
-  } 
+  
+  if ( number < 1 || number > 5 ) {
+    return 'Não temos a informação do time que está nessa posição.'
+  }
+  
+  return 'O time que está em ' + number + 'º lugar é o ' + timePosicao + '.'
   
 }
 
