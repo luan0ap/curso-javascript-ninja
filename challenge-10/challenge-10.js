@@ -56,7 +56,7 @@
   */
   
   function isOperatorValid ( opr ) {
-    return ( opr === '*' || opr === '/' || opr === '+' || opr === '-' || opr === '%' )
+    return !!operation[opr]
   }
 
   /*
@@ -143,11 +143,10 @@
   - O segundo, a função de soma, passando os dois operandos.
   - Se "sum" for "false", mostrar no console a mensagem de erro.
   */
-  
-  number1 = 333;
-  number2 = 455;
-  
+    
   if ( sum ) {
+    number1 = 333;
+    number2 = 455;
     console.log(showOperationMessage( operationSignal, number1, number2  ),  sum( number1, number2 )  )
   }  else  {
     console.log( showErrorMessage(operationSignal) )
@@ -158,19 +157,41 @@
   divisão e resto. Crie variáveis com os nomes "subtraction",
   "multiplication", "division" e "mod".
   */
+  operationSignal = '-'
+  var subtraction = calculator(operationSignal)
   
-  var subtraction = calculator('-');
-  var multiplication = calculator('*');
-  var division = calculator('/');
-  var mod = calculator('%');
-  
-  if ( subtraction &&  multiplication && division && mod ) {
-    console.log(showOperationMessage( operationSignal, number1, number2  ),  subtraction( number1, number2 )  )
-    console.log(showOperationMessage( operationSignal, number1, number2  ),  multiplication( number1, number2 )  )
-    console.log(showOperationMessage( operationSignal, number1, number2  ),  division( number1, number2 )  )
-    console.log(showOperationMessage( operationSignal, number1, number2  ),  mod( number1, number2 )  )
+  if ( subtraction ) {
+    console.log(showOperationMessage( operationSignal, number1, number2  ),  sum( number1, number2 )  )
   }  else  {
-    console.log( showErrorMessage() )
+    console.log( showErrorMessage(operationSignal) )
+  }
+  
+  operationSignal = '*'
+  var multiplication = calculator(operationSignal)
+  
+  if ( multiplication ) {
+    console.log(showOperationMessage( operationSignal, number1, number2  ),  sum( number1, number2 )  )
+  }  else  {
+    console.log( showErrorMessage(operationSignal) )
+  }
+  
+  
+  operationSignal = '/'
+  var division = calculator(operationSignal)
+  
+  if ( division ) {
+    console.log(showOperationMessage( operationSignal, number1, number2  ),  sum( number1, number2 )  )
+  }  else  {
+    console.log( showErrorMessage(operationSignal) )
+  }
+  
+  operationSignal = '%'
+  var mod = calculator(operationSignal)
+  
+  if ( mod ) {
+    console.log(showOperationMessage( operationSignal, number1, number2  ),  sum( number1, number2 )  )
+  }  else  {
+    console.log( showErrorMessage(operationSignal) )
   }
   
   
@@ -178,5 +199,15 @@
   Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
   a mensagem de erro será mostrada no console.
   */
-  // ?
+  
+  operationSignal = 'invalid';
+  var invalid = calculator(operationSignal)
+  
+  if ( invalid ) {
+    console.log(showOperationMessage( operationSignal, number1, number2  ),  sum( number1, number2 )  )
+  }  else  {
+    console.log( showErrorMessage(operationSignal) )
+  }
+  
+  
 })()
