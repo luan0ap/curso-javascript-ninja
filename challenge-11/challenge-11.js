@@ -15,7 +15,7 @@
     console.log('Entrou ao menos uma vez!')
   }
   
-  while(!once)
+  while(once)
   
   /*
   Crie um objeto chamado `person`, que receba as seguintes propriedades:
