@@ -12,7 +12,7 @@
   var once = false;
   
   do {
-    console.log(once)
+    console.log('Entrou ao menos uma vez!')
   }
   
   while(!once)
