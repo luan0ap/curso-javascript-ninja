@@ -15,25 +15,31 @@ console.log( arr.join('') )
 Crie 2 arrays `sul` e `sudeste`, que serão as regiões do Brasil.
 Cada array deve conter os estados dessa região.
 */
-// ?
+
+var sul = []
+var sudeste = []
 
 /*
 Crie uma variável chamada `brasil`, que irá receber as duas regiões
 concatenadas. Mostre o `brasil` no console.
 */
+var brasil = sul.concat(sudeste)
 console.log( '\nAlguns Estados do Brasil:' );
 // ?
 
 /*
 Adicione 3 novos estados da região Norte no início do array e mostre no console.
 */
+brasil.unshift( 'Acre', 'Amapá', 'Amazonas' )
 console.log( '\nMais estados adicionados:' );
 // ?
 
 /*
 Remova o primeiro estado do array `brasil` e mostre-o no console.
 */
+var first = brasil.shift()
 console.log( '\nEstado removido:' );
+console.log( first )
 // ?
 
 /*
@@ -41,6 +47,8 @@ Crie um novo array chamado `newSul`, que receba somente os estados do sul,
 pegando do array `brasil`. Não remova esses itens de `brasil`.
 */
 // ?
+
+var newSul = brasil.slice(3, 5)
 
 /*
 Mostre no console os estados que estão em `newSul`.
