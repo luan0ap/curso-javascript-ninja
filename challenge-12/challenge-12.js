@@ -25,7 +25,7 @@
   Não use nenhuma estrutura de repetição, nem crie o array manualmente.
   */
   
-  console.log(Array(person))
+  console.log(Object.keys(person))
   
   /*
   Crie um array vazio chamado `books`.
@@ -66,9 +66,9 @@
   /*
   Remova o último livro, e mostre-o no console.
   */
-  books.pop()
+  console.log(books.pop())
   console.log( '\nAgora sobraram somente os livros:' );
-  console.log(books)
+  
   /*
   Mostre no console os livros restantes.
   */
@@ -80,32 +80,21 @@
   */
   // ?
   console.log( '\nLivros em formato string:' );
-  var stringfied = []
-  for ( var i = 0; i < books.length; i++ ) {
-    stringfied.push(JSON.stringify(books[i]))
-  }
+  books = JSON.stringify(books)
   
-  console.log(stringfied)
-
   /*
   Mostre os livros nesse formato no console:
   */
   // ?
   
-  console.log(stringfied)
+  console.log(books)
   
   /*
   Converta os livros novamente para objeto.
   */
   // ?
   console.log( '\nAgora os livros são objetos novamente:' );
-  
-  var parsed = []
-  for ( var i = 0; i < stringfied.length; i++ ) {
-    parsed.push(JSON.parse(stringfied[i]))
-  }
-  
-  console.log(parsed)
+  books = JSON.parse(books)
 
   /*
   Mostre no console todas as propriedades e valores de todos os livros,
@@ -113,7 +102,11 @@
       "[PROPRIEDADE]: [VALOR]"
   */
   
-  console.log(JSON.stringify(books))
+  for ( var i =0; i<books.length;i++ ) {
+    for ( var prop in books[i] ) {
+      console.log( prop + ': ' + books[i][prop]) 
+    }
+  }
   
   /*
   Crie um array chamado `myName`. Cada item desse array deve ser uma letra do
@@ -128,13 +121,7 @@
   Juntando todos os itens do array, mostre no console seu nome.
   */
   console.log( '\nMeu nome invertido é:' );
-  
-  var hi = ''
-  for ( var i in  myName ) {
-    hi += myName[i]
-  }
-  
-  console.log(hi)
+  console.log( myName.join( '' ))
   
   /*
   Ainda usando o objeto acima, mostre no console seu nome invertido.
@@ -142,7 +129,7 @@
   // ?
 
   console.log( '\nAgora em ordem alfabética:' );
-  console.log( hi.reverse() )
+  console.log( myName.reverse().join() )
   /*
   Mostre todos os itens do array acima, odenados alfabéticamente.
   */
