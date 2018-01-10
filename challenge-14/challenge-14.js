@@ -62,7 +62,7 @@ primeiro. O nome da variável deve ser operation2. Mostre o resultado no
 console.
 */
 console.log( '\nOperation 2:' );
-var operation2 = justMod2Or3.reduceRigth( function(acc, cur) {
+var operation2 = justMod2Or3.reduceRight( function(acc, cur) {
   return (acc + 1) * cur
 }, 0)
 console.log(operation)
@@ -77,9 +77,9 @@ infantil, onde você coloca a letra "P" antes de cada sílaba de uma palavra
 falada, como se você estivesse falando em código xD
 */
 console.log( '\nSeu nome na língua do "P":' );
-var name = [ 'l', 'u', 'a', 'n' ]
+var name = [ 'lu', 'an' ]
 name.reduce( function ( acc, cur ) {
-  return acc + (cur + 'p')
+  return acc + 'p' + cur
 }, '')
 // ?
 
@@ -106,29 +106,31 @@ Consegue prever o resultado? Deixe uma mensagem no console tentando explicar
 o que acontece ;)
 */
 console.log( '\nExiste um { number: 2 } em numberObjects?' );
-function exists (arr, fil) {
-  if (arr.indexOf(fil) !== -1 ) {
+function exists () {
+  var obj = numberObjects[1]
+  if (numberObjects.indexOf(obj) !== -1 ) {
     return 'Existe um objeto { number: 2 } em numberObjects!'
   }
   
   return 'Não existe um objeto { number: 2 } em numberObjects :('
 }
 
-console.log(exists (numberObjects ,'{ number: 2 }'))
+console.log(exists())
 /*
 Fazendo o mesmo do exercício acima, mas começando a buscar do último índice,
 será que obtemos um resultado diferente? Faça a busca a partir do índice 2.
 */
 console.log( '\nE buscando a partir do último índice, o { number: 2 } existe?' );
-function existsReverse (arr, fil) {
-  if (arr.lastIndexOf(fil, 2) !== -1) {
+function existsR () {
+  var obj = numberObjects[1]
+  if (numberObjects.indexOf(obj) !== -1 ) {
     return 'Existe um objeto { number: 2 } em numberObjects!'
   }
   
   return 'Não existe um objeto { number: 2 } em numberObjects :('
 }
 
-console.log(existsReverse (numberObjects ,'{ number: 2 }'))
+console.log(existsR())
 
 /*
 Verifique se `justMod2Or3` é um array. Se for, mostre-o no console, no
