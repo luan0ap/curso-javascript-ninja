@@ -16,6 +16,10 @@
   E assim por diante, até a última.
   */
   console.log( 'As letras do seu nome:' );
+  var name = 'Luan'
+  for ( i = 0; i < name.length; i++ ) {
+    console.log(name[i] + ' é a ' + (i + 1) + 'ª letra do meu nome.')
+  }
   // ?
 
   /*
@@ -31,7 +35,20 @@
   console.log para cada formato.
   */
   console.log( '\nNome convertido à partir de um slug:' );
-  // ?
+  var fullName = 'dom-pedro-primeiro-de-alcantara-vaz'
+  var fullArr = fullName.split('-')
+  
+  function toUpper(str) {
+    return str[0].toUpperCase() + str.slice(1)
+  }
+  
+  var test = fullArr.map(function(x) {
+     return toUpper(x)
+  }).join(' ')
+  
+  console.log(test)
+  console.log(fullName)
+  
 
   /*
   - Crie um array com 5 nomes. Reduza esses nomes a uma única string, separando
@@ -43,13 +60,21 @@
   5 nomes foi somente uma sugestão ;)
   */
   console.log( '\nMeus amigos:' );
-  // ?
+  var arr = [ 'Paulo', 'João', 'Carlos', 'Ruan', 'Patricia' ]
+  var friends = arr.reduce( function(acc, cur, ind, arr) {
+    var separator = arr.length - 1 === ind ? ' e ' : ', '
+    return acc + separator + cur
+  }).join('')
+  
+  console.log(friends + " são meus amigos.")
+  
 
   /*
   Usando o replace(), faça a string "Roberto" virar "Roberta".
   Mostre o resultado no console.
   */
   console.log( '\nEra "Roberto", agora é:' );
+  console.log('Roberto'.replace('Roberto', 'Roberta'))
   // ?
 
   /*
@@ -57,6 +82,7 @@
   faz a busca do final para o início da string.
   */
   console.log( '\nParte de uma string:' );
+  console.log('Fernando'.substring( 9 , 3 ) )  
   // ?
 
   /*
@@ -69,5 +95,10 @@
   Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
   */
   console.log( '\nNome com letras intercaladas entre caixa alta e baixa:' );
-  // ?
+  var myName = 'luan Ap'
+  var bool;
+  myName.replace(/\w/g, function(x) {
+    bool = !bool
+    return bool ? x.toUpperCase() : x.toLowerCase()
+  })
 })()
