@@ -96,12 +96,14 @@
     
     if ( !$inputUsername.value ) {
       alert('Preencha o nome do usuário')
-      if ( !$inputEmail.value ) {
-        alert('Preencha o email')
-        if( !$message.value ) {
-          alert('Preencha a mensagem')
-        }
-      }
+    }
+    
+    if ( !$inputEmail.value ) {
+      alert('Preencha o email')
+    }
+    
+    if( !$message.value ) {
+      alert('Preencha a mensagem')
     }
     
     isValidEmail($inputEmail.value)) : alert('Entre com um e-mail válido!') : alert(confirma())
