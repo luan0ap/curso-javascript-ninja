@@ -75,7 +75,7 @@ console.log(getFullName.call(carlos))
   */
   console.log( '\nFunção que limpa entrada do usuário (somente números):' );
   function jusNumbers(val) {
-    return val.match(/\d/g)
+    return val.match(/\d+/g)
   }
 
   /*
