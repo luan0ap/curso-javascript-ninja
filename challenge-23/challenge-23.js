@@ -34,23 +34,61 @@ input;
   var $btnsNumber = document.querySelectorAll('[data-js="button-number"]')
   var $btnCe = document.querySelector('[data-id="button-operation-ce"]')
   var $btnsOperations = document.querySelectorAll('[data-js="button-operation"]')
+  var $btnEqual = document.querySelctor('[data-js="button-equal"]')
+  
+  function operations(num1, num2, opr) {
+    return ({
+      '+': (num1 + num2) + opr,
+      '-': (num1 - num2) + opr,
+      '*': (num1 * num2) + opr,
+      '/': (num1 / num2) + opr
+    })
+  }
+  
+  function lastItemIsOperation(number) {
+    var operations = [ '+', '-', '*', '/' ]
+    var lastItem = number.split('').pop()
+    return operations.some( function (x) { 
+      return x === lastItem
+    })
+  }
+  
+  function removeLastItemIfIsOperator(number) {
+    if (lastItemIsOperation(number)) {
+    	return number.slice(-1)
+    }
+    
+    return number
+  }
   
   function handleClickNumbers() {
   	$visor.value += this.value	
   }
   
   function handleClickOperations() {
- 	 	var operations = [ '+', '-', '*', '/' ]
-  	
-    if ($visor.value.lastIndexOf(/[+-*\/]/g)) {
-    	$visor.value.slice(-1)
-    }
+    $visor.value = removeLastItemIfIsOperator($visor.value)
     
   	//$visor.value += this.value	
   }
   
   function handleClickCe() {
   	$visor.value = ''
+  }
+  
+  function handleClickEqual() {
+    $visor.value = removeLastItemIfIsOperator($visor.value)
+    var allValues = $visor.value.match(/(?:\d+)[+*/-]?/g)
+    
+    var result = allValues.reduce( function( acc, cur ) {
+      var firstValue = acc.slice(-1)
+      var operator = acc.split('').pop()
+      var lastValue = removeLastItemIfIsOperator
+      var lastOperator = lastItemIsOperation(cur) ? cur.split('').pop() : '' 
+      return operations(+firstValue, +lastValue, opr + opr)[operator]
+    }) 
+    
+    $visor.value = result 
+    
   }
   
   forEach($btnsNumber, function ($btn) {
@@ -60,6 +98,8 @@ input;
   forEach($btnsOperations, function ($btn) {
   	$btn.addEventListener('click', handleClickOperations)
   })
+  
+  $btnEqual.addEventListener('click', handleClickEqual)
   
   $btnCe.addEventListener('click', handleClickCe)
   
