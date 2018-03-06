@@ -23,18 +23,28 @@
   */
   // ?
   
+  function iterateNode (nodelist, cb) {
+    return Array.prototype.map.call(nodelist, cb)
+  }
+  
   function DOM (elm) {
-    const $elements = this.getElements(elm)
+   this.$elements = this.getElements(elm)
   }
   
   DOM.prototype.getElements = function ($elm) {
     return document.querySelectorAll($elm)
   }
-  DOM.prototype.on = function (event, cb) {}
-  DOM.prototype.off = function (event, cb) {}
+  
   DOM.prototype.get = function () {
     return this.$elements
   }
+  
+  DOM.prototype.on = function (event, cb) {
+    const $elms = this.$elements
+    iterateNode($elms, $elm => $elm.addEventListener(event, cb))
+  }
+  
+  DOM.prototype.off = function (event, cb) {}
 
   var $a = new DOM('[data-js="link"]');
   $a.on('click', function(e) {
