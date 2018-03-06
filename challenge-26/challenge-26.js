@@ -44,7 +44,10 @@
     iterateNode($elms, $elm => $elm.addEventListener(event, cb))
   }
   
-  DOM.prototype.off = function (event, cb) {}
+  DOM.prototype.off = function (event, cb) {
+    const $elms = this.$elements
+    iterateNode($elms, $elm => $elm.removeEventListener(event, cb))
+  }
 
   var $a = new DOM('[data-js="link"]');
   $a.on('click', function(e) {
