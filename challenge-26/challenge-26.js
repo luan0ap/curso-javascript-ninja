@@ -23,8 +23,8 @@
   */
   // ?
   
-  function DOM ($elm) {
-    this.$elm = this.getElements($elm)
+  function DOM (elm) {
+    const $elements = this.getElements(elm)
   }
   
   DOM.prototype.getElements = function ($elm) {
@@ -32,7 +32,9 @@
   }
   DOM.prototype.on = function (event, cb) {}
   DOM.prototype.off = function (event, cb) {}
-  DOM.prototype.get = function () {}
+  DOM.prototype.get = function () {
+    return this.$elements
+  }
 
   var $a = new DOM('[data-js="link"]');
   $a.on('click', function(e) {
